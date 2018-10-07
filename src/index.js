@@ -1,8 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { ApolloProvider } from 'react-apollo'
+import { client } from './apollo'
+import App from './pages/App'
 
-import App from './pages/App';
+const WrappedApp = (
+  <ApolloProvider client={client}>
+    <App /> 
+  </ApolloProvider>
+)
 
-ReactDOM.render(
-   <App />, document.getElementById('root')
-);
+ReactDOM.render(WrappedApp, document.getElementById('root'))
